@@ -1,0 +1,42 @@
+<!--answer.wxml-->
+<view class="container">
+  <view class="question" bindtap="toQuestionDetail">
+    <text class="question-title">选择 Kindle 而不是纸质书的原因是什么？</text>
+  </view>
+  <view class="answerer-wrp">
+    <view class="bg-half"></view>
+    <view class="answerer flex-wrp">
+      <view class="avatar flex-item">
+        <image src="../../images/icon1.jpeg"></image>
+      </view>
+      <view class="answerer-info flex-item">
+        <text class="answerer-name">Rebecca</text>
+        <text class="answerer-des">WEB前端*不靠谱天气预报员*想做代码小仙女</text>
+      </view>
+    </view>
+  </view>
+  <view class="answer-content">
+    <text>{{answer.answer}}</text>
+  </view>
+
+  <view class="answer-footer flex-wrp">
+    <view class="good flex-item">
+      <view class="good-bad" bindtap='upvoteAnswer'>
+        <image src="../../images/upvote.jpg"></image>
+      </view>
+      <view class="good-num">{{answer.upvotes}}</view>
+    </view>
+    <view class="operation-wrp flex-item">
+      <view class="operation flex-wrp flex-tab">
+        <view class="operation-btn flex-item" bindtap='starAnswer'>
+          <image src="../../images/star.png"></image>
+          <text>收藏</text>
+        </view>
+        <view class="operation-btn flex-item" bindtap='commentAnswer'>
+          <image src="../../images/comment.png"></image>
+          <text>{{answer.comments}} 评论 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

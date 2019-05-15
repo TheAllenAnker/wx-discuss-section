@@ -1,0 +1,18 @@
+<form>
+  <view class='question-container'>
+    <view class='title cu-form-group align-start'>
+      <textarea class='text' maxlength="-1" bindinput="titleInput" placeholder="问题标题" fixed='true' maxlength='64'></textarea>
+    </view>
+    <view class="cu-form-group align-start row">
+      <textarea class='text' maxlength="-1" bindinput="descInput" placeholder="请输入问题描述" auto-height='true' fixed='true' maxlength='500'></textarea>
+    </view>
+    <view class="tabbar">
+      <view class="item" style="width:50%" bindtap="cancelQuestion">
+        <image class="icon" mode="aspectFit" src="../../images/cancel.png"></image>
+      </view>
+      <view class="item" style="width:50%" bindtap="commitQuestion">
+        <image class="icon" mode="aspectFit" src="../../images/ok.png"></image>
+      </view>
+    </view>
+  </view>
+</form>

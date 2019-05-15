@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/discovery/discovery",
+    "pages/question/question",
+    "pages/answer/answer",
+    "pages/writeAnswerPage/writeAnswer",
+    "pages/addQuestionPage/addQuestionPage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+
+  "sitemapLocation": "sitemap.json"
+}

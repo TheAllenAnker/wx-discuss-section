@@ -1,0 +1,93 @@
+<view class="top-tab flex-wrp flex-tab ">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:key="idx" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="container discovery withtab" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="ctnt0" hidden="{{currentNavtab != 0}}">
+    <block wx:for="{{feed_VOs}}" wx:key="idx" wx:for-index="idx" wx:for-item="feed_VO" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-source">
+          <a class="">
+            <view class="avatar">
+              <image src="{{feed_VO.user.avatar}}"></image>
+            </view>
+            <text>{{feed_VO.user.username}}</text>
+          </a>
+        </view>
+        <view class="feed-content">
+          <view class="question" data-qid="{{feed_VO.answer.question_id}}" bindtap="toQuestionDetail">
+            <a class="question-link">
+              <text>{{feed_VO.answer.question}}</text>
+            </a>
+          </view>
+          <view class="answer-body" data-aid="{{feed_VO.answer.id}}" bindtap="toAnswerDetail">
+            <view>
+              <text class="answer-txt">{{feed_VO.answer.answer}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like dot">
+                <a>{{feed_VO.answer.upvotes}} 赞同 </a>
+              </view>
+              <view class="comments">
+                <a>{{feed_VO.answer.comments}} 评论 </a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="ctnt2" hidden="{{currentNavtab != 1}}">
+    <block wx:for="{{question_VOs}}" wx:key="idx" wx:for-item="question" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-source">
+          <a class="">
+            <view class="avatar">
+              <image src="{{question.user.avatar}}"></image>
+            </view>
+            <text>{{question.user.username}}</text>
+          </a>
+        </view>
+        <view class="feed-content">
+          <view class="question" data-qid="{{question.question._id}}" bindtap="toQuestionDetail">
+            <a class="question-link">
+              <text>{{question.question.content}}</text>
+            </a>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="ctnt3" hidden="{{currentNavtab != 2}}">
+    <block wx:for="{{collection_VOs}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-content">
+          <view class="question" data-qid="{{item.question._id}}" bindtap="toQuestionDetail">
+            <a class="question-link">
+              <text>{{item.question.content}}</text>
+            </a>
+          </view>
+          <view class="answer-body" data-aid="{{item.answer._id}}" bindtap="toAnswerDetail">
+            <view>
+              <text class="answer-txt">{{item.answer.answer}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like dot">
+                <a>{{item.answer.upvotes}} 赞同 </a>
+              </view>
+              <view class="comments">
+                <a>{{item.answer.comments}} 评论 </a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<view>
+  <image class="add_icon" src="../../images/add.png" bindtap="toAddQuestionPage"></image>
+</view>

@@ -1,0 +1,54 @@
+<!--question.wxml-->
+<view class="container">
+  <view class="question-wrp">
+    <view class="question-item">
+      <view class="que-title">
+        {{question.content}}
+      </view>
+      <view class="que-follow">
+        <view class="feed-source">
+          <a class="" bindTap="">
+            <view class="avatar">
+              <image src="{{user.avatar}}"></image>
+            </view>
+            <text>{{user.username}}</text>
+          </a>
+        </view>
+      </view>
+    </view>
+    <view class="que-operate flex-wrp">
+      <view class="write flex-item" bindtap='toWriteAnswer' data-qid="{{question._id}}">
+        <image src="../../images/write.png"></image>
+        <text>写回答</text>
+      </view>
+    </view>
+  </view>
+  <view>
+  <block wx:for="{{answers}}" wx:key="idx" wx:for-index="idx" wx:for-item="answer" data-idx="{{idx}}">
+      <view class="feed-item">
+        <view class="feed-source">
+          <a class="">
+            <view class="avatar">
+              <image src="{{answer.user.avatar}}"></image>
+            </view>
+            <text>{{answer.user.username}}</text>
+          </a>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body" data-aid="{{answer.answer.id}}" bindtap="toAnswerDetail">
+            <view>
+              <text class="answer-txt">{{answer.answer.answer}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like dot">
+                <a>{{answer.answer.upvotes}} 赞同 </a>
+              </view>
+              <view class="comments">
+                <a>{{answer.answer.comments}} 评论 </a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block></view>
+</view>

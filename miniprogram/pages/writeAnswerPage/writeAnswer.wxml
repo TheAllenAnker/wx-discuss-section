@@ -1,0 +1,13 @@
+<form>
+  <view class="cu-form-group align-start">
+    <textarea maxlength="-1" bindinput="textareaInput" placeholder="请输入你的回答" fixed='true' maxlength='1000'></textarea>
+  </view>
+  <view class="tabbar">
+  <view class="item" style="width:50%" bindtap="cancelAnswer">
+    <image class="icon" mode="aspectFit" src="../../images/cancel.png"></image>
+  </view>
+  <view class="item" style="width:50%" bindtap="commitAnswer">
+    <image class="icon" mode="aspectFit" src="../../images/ok.png"></image>
+  </view>
+</view>
+</form>
