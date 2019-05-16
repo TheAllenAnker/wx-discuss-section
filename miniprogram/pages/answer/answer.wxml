@@ -1,7 +1,7 @@
 <!--answer.wxml-->
 <view class="container">
   <view class="question" bindtap="toQuestionDetail">
-    <text class="question-title">选择 Kindle 而不是纸质书的原因是什么？</text>
+    <text class="question-title">{{answer.question}}</text>
   </view>
   <view class="answerer-wrp">
     <view class="bg-half"></view>
@@ -10,8 +10,8 @@
         <image src="../../images/icon1.jpeg"></image>
       </view>
       <view class="answerer-info flex-item">
-        <text class="answerer-name">Rebecca</text>
-        <text class="answerer-des">WEB前端*不靠谱天气预报员*想做代码小仙女</text>
+        <text class="answerer-name">{{user.username}}</text>
+        <text class="answerer-des">{{user.description}}</text>
       </view>
     </view>
   </view>
@@ -22,9 +22,9 @@
   <view class="answer-footer flex-wrp">
     <view class="good flex-item">
       <view class="good-bad" bindtap='upvoteAnswer'>
-        <image src="../../images/upvote.jpg"></image>
+        <image src="{{upvoteImagePath}}"></image>
       </view>
-      <view class="good-num">{{answer.upvotes}}</view>
+      <view class="good-num">{{upvotes}}</view>
     </view>
     <view class="operation-wrp flex-item">
       <view class="operation flex-wrp flex-tab">

@@ -35,7 +35,7 @@
           </a>
         </view>
         <view class="feed-content">
-          <view class="answer-body" data-aid="{{answer.answer.id}}" bindtap="toAnswerDetail">
+          <view class="answer-body" data-aid="{{answer.answer._id}}" bindtap="toAnswerDetail">
             <view>
               <text class="answer-txt">{{answer.answer.answer}}</text>
             </view>

@@ -31,6 +31,12 @@ Page({
     this.setPageData(this.data.qid)
   },
 
+  toAnswerDetail: function (e) {
+    wx.navigateTo({
+      url: '../answer/answer?aid=' + e.currentTarget.dataset.aid
+    })
+  },
+
   setPageData: function(question_id) {
     var that = this
     console.log(question_id)

@@ -48,9 +48,8 @@ Page({
   },
 
   toAnswerDetail: function(e) {
-    console.log(e.currentTarget)
     wx.navigateTo({
-      url: '../answer/answer'
+      url: '../answer/answer?aid=' + e.currentTarget.dataset.aid 
     })
   },
   // navigate to the question detail page to view/add answers
@@ -228,8 +227,6 @@ Page({
   // triggered if scrolled up to the top
   upper: function() {
     wx.showNavigationBarLoading()
-    // this.refresh();
-    console.log("upper");
     setTimeout(function() {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
@@ -243,7 +240,6 @@ Page({
       wx.hideNavigationBarLoading();
       that.nextLoad();
     }, 1000);
-    console.log("lower")
   },
 
   // load more discovery data
@@ -254,7 +250,6 @@ Page({
 
   getMoreDiscoveryData: function() {
     var currentTab = this.data.currentNavtab
-    console.log(currentTab)
     var that = this
     switch (currentTab) {
       case "0":

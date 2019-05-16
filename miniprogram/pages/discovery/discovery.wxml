@@ -22,7 +22,7 @@
               <text>{{feed_VO.answer.question}}</text>
             </a>
           </view>
-          <view class="answer-body" data-aid="{{feed_VO.answer.id}}" bindtap="toAnswerDetail">
+          <view class="answer-body" data-aid="{{feed_VO.answer._id}}" bindtap="toAnswerDetail">
             <view>
               <text class="answer-txt">{{feed_VO.answer.answer}}</text>
             </view>
