@@ -41,6 +41,15 @@ Page({
     //调用应用实例的方法获取全局数据
   },
 
+  onReachBottom: function() {
+    wx.showNavigationBarLoading();
+    var that = this;
+    setTimeout(function() {
+      wx.hideNavigationBarLoading();
+      that.nextLoad();
+    }, 1000);
+  },
+
   switchTab: function(e) {
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx
@@ -49,7 +58,7 @@ Page({
 
   toAnswerDetail: function(e) {
     wx.navigateTo({
-      url: '../answer/answer?aid=' + e.currentTarget.dataset.aid 
+      url: '../answer/answer?aid=' + e.currentTarget.dataset.aid
     })
   },
   // navigate to the question detail page to view/add answers
@@ -222,24 +231,6 @@ Page({
         that.setCollectionVOs(res.data);
       }
     })
-  },
-
-  // triggered if scrolled up to the top
-  upper: function() {
-    wx.showNavigationBarLoading()
-    setTimeout(function() {
-      wx.hideNavigationBarLoading();
-      wx.stopPullDownRefresh();
-    }, 2000);
-  },
-  // triggered if scrolled down to the bottom
-  lower: function(e) {
-    wx.showNavigationBarLoading();
-    var that = this;
-    setTimeout(function() {
-      wx.hideNavigationBarLoading();
-      that.nextLoad();
-    }, 1000);
   },
 
   // load more discovery data

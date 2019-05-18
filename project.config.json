@@ -8,6 +8,7 @@
 		"minified": true,
 		"newFeature": true
 	},
+
 	"appid": "wx07de41522b564424",
 	"projectname": "discuss-section",
 	"libVersion": "2.2.5",
