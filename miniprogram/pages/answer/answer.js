@@ -39,10 +39,24 @@ Page({
         })
       }
     })
+
+    db.collection('answers').where({
+      'user_id': "",
+      "answer_id": aid
+    }).get({
+      success(res) {
+        that.setData({
+          liked: true
+        })
+      }
+    })
   },
 
   onShow: function() {
     var liked = this.data.liked
+    this.setData({
+      oldStatus: liked
+    })
     if (liked) {
       this.setData({
         upvoteImagePath: "../../images/liked.png"
@@ -51,6 +65,36 @@ Page({
       this.setData({
         upvoteImagePath: "../../images/unliked.png"
       })
+    }
+  },
+
+  onHide: function() {
+    var liked = this.data.liked
+    var that = this
+    // like status changed
+    if (this.data.oldStatus != liked) {
+      // used to like, but dislike now
+      if (liked) {
+        db.collection('liked').where({
+          "answer_id": that.data.aid,
+          "user_id": ""
+        }).remove({
+          success(res) {
+            console.log(res.data)
+          }
+        })
+      } else {
+        // like now
+        db.collection('liked').add({
+          data: {
+            "answer_id": that.data.aid,
+            "user_id": ""
+          },
+          success(res) {
+            console.log(res)
+          }
+        })
+      }
     }
   },
 
