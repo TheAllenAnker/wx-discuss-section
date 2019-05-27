@@ -1,0 +1,26 @@
+<view class='container'>
+  <block wx:for="{{answers}}" wx:key="idx" wx:for-index="idx" wx:for-item="answer" data-idx="{{idx}}">
+    <view class="feed-item">
+      <view class="feed-content">
+        <view class="question">
+          <a class="question-link">
+            <text>{{answer.question}}</text>
+          </a>
+        </view>
+        <view class="answer-body" data-aid="{{answer._id}}" bindtap="toAnswerDetail">
+          <view>
+            <text class="answer-txt">{{answer.answer}}</text>
+          </view>
+          <view class="answer-actions">
+            <view class="like dot">
+              <a>{{answer.upvotes}} 赞同 </a>
+            </view>
+            <view class="comments">
+              <a>{{answer.comments}} 评论 </a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

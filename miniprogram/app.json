@@ -4,7 +4,8 @@
     "pages/question/question",
     "pages/answer/answer",
     "pages/writeAnswerPage/writeAnswer",
-    "pages/addQuestionPage/addQuestionPage"
+    "pages/addQuestionPage/addQuestionPage",
+    "pages/myAnswer/myAnswer"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,6 +13,5 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-
   "sitemapLocation": "sitemap.json"
 }
